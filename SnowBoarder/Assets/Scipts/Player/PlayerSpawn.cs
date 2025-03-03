@@ -7,7 +7,6 @@ public class PlayerSpawn : MonoBehaviour
 
     private void Awake()
     {
-        spawnPoint = new Vector3(-0.8f, 21f, 0f); // Set the spawn point
         if (playerPrefab == null)
         {
             Debug.LogError("Player Prefab is not assigned!");

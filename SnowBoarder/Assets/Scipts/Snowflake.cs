@@ -8,8 +8,12 @@ public class Snowflake : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            ScoreManager.Instance.AddItemScore(snowflakePoints);
-            Destroy(gameObject); // Remove the snowflake after collection
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddItemScore(snowflakePoints);
+            }
+
+            Destroy(gameObject);
         }
     }
 }

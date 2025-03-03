@@ -42,10 +42,18 @@ public class SnowboarderPhysics: MonoBehaviour
         // Limit speed
         Vector2 clampedVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
         rb.linearVelocity = clampedVelocity;
+
+        // *** Add speed-based scoring ***
+        // Multiply by Time.fixedDeltaTime to avoid adding too many points each frame.
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddSpeedScore(rb.linearVelocity.magnitude * Time.fixedDeltaTime);
+        }
+
         // Check if the player is upside down while grounded
 
         float angle = transform.eulerAngles.z;
-        if (isGrounded && (angle > 100f && angle < 280f))
+        if (isGrounded && (angle > 120f && angle < 300f))
         {
             Debug.Log("Player crashed!");
             HandleDeath();
@@ -53,7 +61,7 @@ public class SnowboarderPhysics: MonoBehaviour
     }
     private void HandleDeath()
     {
-        float destroyAfter = 2f; // Time before destroying the player
+        float destroyAfter = 1f; // Time before destroying the player
         rb.linearVelocity = Vector2.zero; // Stop movement
         StartCoroutine(DelayedDestroy(destroyAfter)); // Destroy the player
     }

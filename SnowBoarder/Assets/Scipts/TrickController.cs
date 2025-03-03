@@ -24,8 +24,11 @@ public class TrickController : MonoBehaviour
         yield return new WaitForSeconds(1.0f);  // simulate trick duration
 
         // On successful trick completion, add trick score.
-        ScoreManager.Instance.AddTrickScore(trickBasePoints);
-        Debug.Log("Trick complete!");
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddTrickScore(trickBasePoints);
+        }
+        Debug.Log("Trick completed and points awarded!");
 
         isPerformingTrick = false;
     }

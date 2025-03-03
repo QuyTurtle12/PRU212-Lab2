@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+    public TextMeshProUGUI scoreText;
 
     public int currentScore = 0;
     public int highScore = 0;
@@ -26,11 +29,37 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Look for the TMP Text component by its name "ScoreText"
+        GameObject scoreTextObj = GameObject.Find("ScoreText");
+        if (scoreTextObj != null)
+        {
+            scoreText = scoreTextObj.GetComponent<TextMeshProUGUI>();
+            // Update the UI right away with the current score.
+            UpdateScoreUI();
+        }
+        else
+        {
+            Debug.LogWarning("ScoreText object not found in scene: " + scene.name);
+        }
+    }
 
     private void Start()
     {
         // Load the saved high score
         highScore = PlayerPrefs.GetInt("HighScore", 0);
+        UpdateScoreUI();
     }
 
     private void Update()
@@ -74,8 +103,16 @@ public class ScoreManager : MonoBehaviour
     void AddScore(int points)
     {
         currentScore += points;
-        // Update your UI here if necessary.
+        UpdateScoreUI();
         Debug.Log("Added " + points + " points. Total Score: " + currentScore);
+    }
+
+    void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + currentScore;
+        }
     }
 
     // Reset the combo count and multiplier.

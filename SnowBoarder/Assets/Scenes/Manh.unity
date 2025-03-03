@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5407163833490408263, guid: 660aca78e147a634e81bb1cd1d5b3707, type: 3}
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: -1.17, y: 21.03, z: 0}
 --- !u!4 &1141884171
 Transform:
   m_ObjectHideFlags: 0
