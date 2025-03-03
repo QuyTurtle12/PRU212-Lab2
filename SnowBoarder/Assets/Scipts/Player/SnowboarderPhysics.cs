@@ -33,14 +33,12 @@ public class SnowboarderPhysics: MonoBehaviour
         moveInput = Input.GetAxis("Horizontal"); // Get player input
 
         // Check if the player is upside down while grounded
-
         float angle = transform.eulerAngles.z;
         if (isGrounded && (angle > 100f && angle < 280f))
         {
             Debug.Log("Player crashed!");
             HandleDeath();
         }
-
         // Apply temporary speed boost when spacebar is pressed
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
@@ -49,7 +47,6 @@ public class SnowboarderPhysics: MonoBehaviour
             StartCoroutine(ResetBoost());
         }
     }
-
     private void FixedUpdate()
     {
         rb.AddForce(Vector2.right * baseSpeed, ForceMode2D.Force);
@@ -74,7 +71,6 @@ public class SnowboarderPhysics: MonoBehaviour
             isGrounded = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))
@@ -95,10 +91,10 @@ public class SnowboarderPhysics: MonoBehaviour
     {
         return isBoosting;
     }
-
     private IEnumerator ResetBoost()
     {
         yield return new WaitForSeconds(0.5f); // Boost duration
         isBoosting = false;
     }
+
 }
