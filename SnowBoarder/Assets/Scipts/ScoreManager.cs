@@ -149,6 +149,10 @@ public class ScoreManager : MonoBehaviour
     {
         scoreMultiplier = 1f + (comboCount * 1f);
     }
+    public void AddTurnAroundScore(int turnaroundPoints)
+    {
+        AddScore(turnaroundPoints);
+    }
 
     // Save the high score using PlayerPrefs.
     public void SaveHighScore()

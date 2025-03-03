@@ -10,6 +10,11 @@ public class SnowboarderPhysics: MonoBehaviour
     private float moveInput;
     private float baseSpeed = 5f;
     private bool isGrounded = false;
+    private float rotationAtTakeOff;
+    private bool wasAirborne = false;
+
+    private float cumulativeRotation = 0f; // Total rotation accumulated while airborne.
+    private float lastRotation = 0f;       // The last recorded rotation angle.
 
     private void Start()
     {
@@ -50,6 +55,16 @@ public class SnowboarderPhysics: MonoBehaviour
             ScoreManager.Instance.AddSpeedScore(rb.linearVelocity.magnitude * Time.fixedDeltaTime);
         }
 
+        if (!isGrounded && wasAirborne)
+        {
+            float currentRotation = transform.eulerAngles.z;
+            // DeltaAngle gives the shortest difference, taking wrap-around into account.
+            float delta = Mathf.DeltaAngle(lastRotation, currentRotation);
+            cumulativeRotation += Mathf.Abs(delta);
+            lastRotation = currentRotation;
+        }
+
+
         // Check if the player is upside down while grounded
 
         float angle = transform.eulerAngles.z;
@@ -70,6 +85,26 @@ public class SnowboarderPhysics: MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             isGrounded = true;
+
+            if (wasAirborne)
+            {
+                Debug.Log("Landed. Cumulative rotation: " + cumulativeRotation);
+                // Only award bonus if the player spun at least 180°
+                if (cumulativeRotation >= 180f)
+                {
+                    // Calculate multiplier: for every full 360° rotation add +1 multiplier
+                    int multiplier = Mathf.FloorToInt(cumulativeRotation / 360f) + 1;
+                    int baseTurnaroundBonus = 5000; // Adjust base bonus as needed.
+                    int finalBonus = baseTurnaroundBonus * multiplier;
+                    Debug.Log("Successful Turnaround! Cumulative rotation: " + cumulativeRotation +
+                              " | Multiplier: " + multiplier + " | Bonus awarded: " + finalBonus);
+                    if (ScoreManager.Instance != null)
+                    {
+                        ScoreManager.Instance.AddTurnAroundScore(finalBonus);
+                    }
+                }
+                wasAirborne = false;
+            }
         }
     }
 
@@ -78,6 +113,11 @@ public class SnowboarderPhysics: MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             isGrounded = false;
+            rotationAtTakeOff = transform.eulerAngles.z;
+            lastRotation = rotationAtTakeOff; // Initialize the last rotation.
+            cumulativeRotation = 0f;          // Reset cumulative rotation.
+            wasAirborne = true;
+            Debug.Log("Left ground. Rotation at takeoff: " + rotationAtTakeOff);
         }
     }
     private IEnumerator DelayedDestroy(float delay)
@@ -89,4 +129,14 @@ public class SnowboarderPhysics: MonoBehaviour
     {
         return isGrounded;
     }
+    private float AngleDifference(float a, float b)
+    {
+        float diff = Mathf.Abs(a - b) % 360f;
+        if (diff > 180f)
+        {
+            diff = 360f - diff;
+        }
+        return diff;
+    }
+
 }
