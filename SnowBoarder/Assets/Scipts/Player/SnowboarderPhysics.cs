@@ -4,12 +4,14 @@ using UnityEngine;
 public class SnowboarderPhysics: MonoBehaviour
 {
     public static SnowboarderPhysics Instance { get; private set; }
-    public float turnSpeed = 20f; // Adjust turning sensitivity
+    public float turnSpeed = 40f; // Adjust turning sensitivity
     public float maxSpeed = 100f; // Max speed allowed
     private Rigidbody2D rb;
     private float moveInput;
     private float baseSpeed = 5f;
     private bool isGrounded = false;
+    private bool isBoosting = false;
+    public float boostForce = 20f;
 
     private void Start()
     {
@@ -29,7 +31,23 @@ public class SnowboarderPhysics: MonoBehaviour
     private void Update()
     {
         moveInput = Input.GetAxis("Horizontal"); // Get player input
-        
+
+        // Check if the player is upside down while grounded
+
+        float angle = transform.eulerAngles.z;
+        if (isGrounded && (angle > 100f && angle < 280f))
+        {
+            Debug.Log("Player crashed!");
+            HandleDeath();
+        }
+
+        // Apply temporary speed boost when spacebar is pressed
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            isBoosting = true;
+            rb.AddForce(transform.right * boostForce, ForceMode2D.Impulse);
+            StartCoroutine(ResetBoost());
+        }
     }
 
     private void FixedUpdate()
@@ -42,18 +60,10 @@ public class SnowboarderPhysics: MonoBehaviour
         // Limit speed
         Vector2 clampedVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
         rb.linearVelocity = clampedVelocity;
-        // Check if the player is upside down while grounded
-
-        float angle = transform.eulerAngles.z;
-        if (isGrounded && (angle > 100f && angle < 280f))
-        {
-            Debug.Log("Player crashed!");
-            HandleDeath();
-        }
     }
     private void HandleDeath()
     {
-        float destroyAfter = 2f; // Time before destroying the player
+        float destroyAfter = 1f; // Time before destroying the player
         rb.linearVelocity = Vector2.zero; // Stop movement
         StartCoroutine(DelayedDestroy(destroyAfter)); // Destroy the player
     }
@@ -80,5 +90,15 @@ public class SnowboarderPhysics: MonoBehaviour
     public bool IsGrounded()
     {
         return isGrounded;
+    }
+    public bool IsBoosting()
+    {
+        return isBoosting;
+    }
+
+    private IEnumerator ResetBoost()
+    {
+        yield return new WaitForSeconds(0.5f); // Boost duration
+        isBoosting = false;
     }
 }
