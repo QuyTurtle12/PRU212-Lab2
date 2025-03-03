@@ -28,7 +28,7 @@ public class TrickController : MonoBehaviour
         {
             ScoreManager.Instance.AddTrickScore(trickBasePoints);
         }
-        Debug.Log("Trick completed and points awarded!");
+        Debug.Log("Trick completed! Combo: " + ScoreManager.Instance.comboCount + " Multiplier: " + ScoreManager.Instance.scoreMultiplier);
 
         isPerformingTrick = false;
     }

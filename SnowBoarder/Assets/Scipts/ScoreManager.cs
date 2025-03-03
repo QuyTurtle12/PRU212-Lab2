@@ -6,6 +6,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI comboText;
+    public TextMeshProUGUI multiplierText;
 
     public int currentScore = 0;
     public int highScore = 0;
@@ -43,15 +45,21 @@ public class ScoreManager : MonoBehaviour
     {
         // Look for the TMP Text component by its name "ScoreText"
         GameObject scoreTextObj = GameObject.Find("ScoreText");
-        if (scoreTextObj != null)
+        GameObject multiplierTextObj = GameObject.Find("MultiplierText");
+        GameObject comboTextObj = GameObject.Find("ComboText");
+
+
+        if (scoreTextObj != null || multiplierText != null || comboTextObj != null)
         {
             scoreText = scoreTextObj.GetComponent<TextMeshProUGUI>();
+            multiplierText = multiplierTextObj.GetComponent<TextMeshProUGUI>();
+            comboText = comboTextObj.GetComponent<TextMeshProUGUI>();
             // Update the UI right away with the current score.
             UpdateScoreUI();
         }
         else
         {
-            Debug.LogWarning("ScoreText object not found in scene: " + scene.name);
+            Debug.LogWarning("Text object not found in scene: " + scene.name);
         }
     }
 
@@ -60,6 +68,7 @@ public class ScoreManager : MonoBehaviour
         // Load the saved high score
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateScoreUI();
+        UpdateComboUI();
     }
 
     private void Update()
@@ -78,7 +87,7 @@ public class ScoreManager : MonoBehaviour
     // Score based on speed (for example, converting speed to points)
     public void AddSpeedScore(float speed)
     {
-        int points = Mathf.RoundToInt(speed * 10f); // tweak multiplier as needed
+        int points = Mathf.RoundToInt(speed * 10f);
         AddScore(points);
     }
 
@@ -91,10 +100,11 @@ public class ScoreManager : MonoBehaviour
     // Score for performing a trick. This also updates the combo count and multiplier.
     public void AddTrickScore(int trickBasePoints)
     {
-        // Each successful trick increases the combo count.
         comboCount++;
-        comboTimer = 0f;  // reset the combo timer
+        comboTimer = 0f;
         UpdateMultiplier();
+        UpdateComboUI();
+
         int totalPoints = Mathf.RoundToInt(trickBasePoints * scoreMultiplier);
         AddScore(totalPoints);
     }
@@ -114,6 +124,17 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = "Score: " + currentScore;
         }
     }
+    void UpdateComboUI()
+    {
+        if (comboText != null)
+        {
+            comboText.text = "Combo: " + comboCount;
+        }
+        if (multiplierText != null)
+        {
+            multiplierText.text = "Multiplier: " + scoreMultiplier.ToString("F1");
+        }
+    }
 
     // Reset the combo count and multiplier.
     public void ResetCombo()
@@ -126,8 +147,7 @@ public class ScoreManager : MonoBehaviour
     // Increase multiplier based on current combo count.
     void UpdateMultiplier()
     {
-        // For instance, each trick increases the multiplier by 0.1.
-        scoreMultiplier = 1f + (comboCount * 0.1f);
+        scoreMultiplier = 1f + (comboCount * 1f);
     }
 
     // Save the high score using PlayerPrefs.
