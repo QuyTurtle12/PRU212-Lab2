@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647390529740337073}
   - component: {fileID: 1845427389843177223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boarder_Top_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951425959432893734}
   - component: {fileID: 6919091210822170799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boarder_Bottom_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,8 +113,8 @@ Transform:
   m_GameObject: {fileID: 3701903679121843510}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.49, y: -0.13, z: 0}
+  m_LocalScale: {x: 0.8358, y: 1.0924, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6535677815309252192}
@@ -189,7 +189,9 @@ GameObject:
   - component: {fileID: 9168495080488080213}
   - component: {fileID: 3978648820843331655}
   - component: {fileID: 8137003519147659566}
-  m_Layer: 0
+  - component: {fileID: -244869631155579100}
+  - component: {fileID: -5757576368219432233}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -205,8 +207,8 @@ Transform:
   m_GameObject: {fileID: 5407163833490408263}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74882334, y: 21.1, z: -0.07367495}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.74514, y: 21.1, z: -0.07367495}
+  m_LocalScale: {x: 0.95, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6535677815309252192}
@@ -386,6 +388,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trickBasePoints: 1000
+--- !u!114 &-244869631155579100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407163833490408263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf70beb69f0d7348943d581b3aebe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5757576368219432233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407163833490408263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f1e1cc173ecf5409a2f6c2e24dc418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5593957646048986329
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6535677815309252192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

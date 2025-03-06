@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3546147071461946293}
   - component: {fileID: 7970627386884120930}
+  - component: {fileID: 5933104706167974580}
+  - component: {fileID: 5716385690442356972}
+  - component: {fileID: 5420969315289184135}
   m_Layer: 0
   m_Name: TrackPlayerCamera
   m_TagString: Untagged
@@ -46,6 +49,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba27e32e82739a4d876ec724e9796b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5933104706167974580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282271997034415727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fc18374d87e814786448a28ac9ff8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullheart: {fileID: -1694815623, guid: 3f59ceb4316c8374eacdf71a5a23b736, type: 3}
+  emptyheart: {fileID: -543846967, guid: 3f59ceb4316c8374eacdf71a5a23b736, type: 3}
+--- !u!114 &5716385690442356972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282271997034415727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a38c922db8e5d46bc75e1b94e64184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuScreen: {fileID: 0}
+  gameOverScreen: {fileID: 0}
+--- !u!114 &5420969315289184135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282271997034415727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf70beb69f0d7348943d581b3aebe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5945168385418944667
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 5945168385418944667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -51.7, y: 16.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 6162410233815648573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -51.7, y: 16.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

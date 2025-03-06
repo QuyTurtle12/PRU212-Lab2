@@ -1,10 +1,11 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
     private CinemachineCamera cinemachineCam;
-
+   
     private void Update()
     {
         cinemachineCam = GetComponentInChildren<CinemachineCamera>();
@@ -22,4 +23,6 @@ public class CameraManager : MonoBehaviour
             Debug.LogError("Player not found in the scene!");
         }
     }
+    
+
 }

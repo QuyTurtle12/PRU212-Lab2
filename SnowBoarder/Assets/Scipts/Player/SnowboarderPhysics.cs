@@ -31,6 +31,7 @@ public class SnowboarderPhysics: MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         rb.sharedMaterial = Resources.Load<PhysicsMaterial2D>("SnowPhysics"); // Assign Physics Material
+
     }
 
     private void Update()
