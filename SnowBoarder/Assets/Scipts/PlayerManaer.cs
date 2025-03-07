@@ -8,13 +8,15 @@ public class PlayerManaer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        Time.timeScale = 1;
         isGameOver = false;
     }
     public void Update()
     {
         if (isGameOver)
         {
-            gameOverScreen.SetActive(true);
+            ScoreManager.Instance.SaveHighScore();
+            SceneManager.LoadScene("EndMenu");
         }
     }
     public void ReloadLevel()
@@ -33,6 +35,12 @@ public class PlayerManaer : MonoBehaviour
     }
     public void GotoMenu()
     {
+        // Reset the score before loading the main menu
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
+
         SceneManager.LoadScene("MainMenu");
     }
 }

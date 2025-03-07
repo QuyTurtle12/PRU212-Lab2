@@ -154,9 +154,21 @@ public class ScoreManager : MonoBehaviour
         AddScore(turnaroundPoints);
     }
 
+    // reset the score
+    public void ResetScore()
+    {
+        currentScore = 0;
+        comboCount = 0;
+        scoreMultiplier = 1f;
+        comboTimer = 0f;
+        UpdateScoreUI();
+        UpdateComboUI();
+    }
+
     // Save the high score using PlayerPrefs.
     public void SaveHighScore()
     {
+        Debug.Log("SaveHighScore() called");
         if (currentScore > highScore)
         {
             highScore = currentScore;
