@@ -558,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionPanel: {fileID: 823116930}
   mainMenuPanel: {fileID: 2005627504}
+  level1SceneName: Level1
 --- !u!1 &752455281
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,17 +865,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1466718665}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 532406912}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: LoadLevel1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &971888486
 MonoBehaviour:
@@ -1686,17 +1687,12 @@ Transform:
   m_GameObject: {fileID: 1434069520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0934, y: -0.6521, z: 0}
-  m_LocalScale: {x: 7.629453, y: 5.581318, z: 1}
+  m_LocalPosition: {x: 0.5651, y: -1.3933, z: 0}
+  m_LocalScale: {x: 22.108046, y: 14.215509, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1466718665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5557100368485893873, guid: e877564f8f242c343bbb6cb8906860fd, type: 3}
-  m_PrefabInstance: {fileID: 8644527531775384470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1466718666 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8054958389046165886, guid: e877564f8f242c343bbb6cb8906860fd, type: 3}

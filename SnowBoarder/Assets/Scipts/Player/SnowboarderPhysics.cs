@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnowboarderPhysics: MonoBehaviour
 {
@@ -95,6 +96,8 @@ public class SnowboarderPhysics: MonoBehaviour
         float destroyAfter = 1f; // Time before destroying the player
         rb.linearVelocity = Vector2.zero; // Stop movement
         StartCoroutine(DelayedDestroy(destroyAfter)); // Destroy the player
+        ScoreManager.Instance.SaveHighScore();
+        SceneManager.LoadScene("EndMenu");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
