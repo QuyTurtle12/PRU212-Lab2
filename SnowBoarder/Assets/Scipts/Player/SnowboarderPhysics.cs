@@ -56,7 +56,7 @@ public class SnowboarderPhysics: MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.AddForce(Vector2.right * baseSpeed, ForceMode2D.Force);
+        //rb.AddForce(Vector2.right * baseSpeed, ForceMode2D.Force);
 
         // Apply turning
         rb.AddTorque(-moveInput * turnSpeed);

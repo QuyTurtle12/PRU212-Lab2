@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2117195092578557437}
   m_Layer: 0
   m_Name: Effect Zone
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ AreaEffector2D:
     m_Bits: 4294967295
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
-  m_ForceMagnitude: 200
+  m_ForceMagnitude: 500
   m_ForceVariation: 0
   m_ForceTarget: 0
   m_Drag: 0
