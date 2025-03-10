@@ -9,7 +9,7 @@ public class SnowboarderPhysics: MonoBehaviour
     public float maxSpeed = 100f; // Max speed allowed
     private Rigidbody2D rb;
     private float moveInput;
-    private float baseSpeed = 5f;
+    private float baseSpeed = 20f;
     private bool isGrounded = false;
     private float rotationAtTakeOff;
     private bool wasAirborne = false;
