@@ -29,4 +29,10 @@ public class MainMenuController : MonoBehaviour
             Debug.LogError("Level 1 Scene Name is not set in the MainMenuController script!");
         }
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game!");
+        Application.Quit();
+    }
 }
