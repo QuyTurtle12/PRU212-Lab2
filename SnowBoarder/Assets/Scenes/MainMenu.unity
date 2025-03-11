@@ -1547,10 +1547,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Use WASD or \u2191\u2193\u2192\u2190 to move.\n- Collect Snowflake to
-    gain points.\n- Keep sliding with high speed to acquire points.\n- Perform tricks
-    to get extra points.\n- Obtain items to gain mysterious power.\n- What is the
-    highest score you can get?\n"
+  m_text: "- Use A D or \u2192 \u2190 to move.\n- Collect Snowflake to gain points.\n-
+    Keep sliding with high speed to acquire points.\n- Perform tricks to get extra
+    points.\n- Obtain items to gain mysterious power.\n- What is the highest score
+    you can get?\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
