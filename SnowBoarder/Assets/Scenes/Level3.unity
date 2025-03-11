@@ -21256,6 +21256,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4464094587018055729, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1774517803}
+    - target: {fileID: 4464094587018055729, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056168257065705745, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1774517803}
+    - target: {fileID: 6056168257065705745, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345013384213549639, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1774517803}
+    - target: {fileID: 8345013384213549639, guid: df6b75ceeea8b8c498a0a4ba85676a6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21336,6 +21360,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af04dc8b26e934c4ca2b7a55d8007161, type: 3}
+--- !u!114 &1774517803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7235204052445657108, guid: af04dc8b26e934c4ca2b7a55d8007161, type: 3}
+  m_PrefabInstance: {fileID: 1774517802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a38c922db8e5d46bc75e1b94e64184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1824253738
 GameObject:
   m_ObjectHideFlags: 0
