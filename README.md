@@ -37,7 +37,7 @@ The game blends engaging arcade action with realistic physics, offering a thrill
   - **Snowboarding Adventure:** Navigate steep slopes using realistic physics such as gravity, friction, and momentum.
   - **Obstacle Challenges:** Avoid rocks; a head collision with the ground ends the game, while colliding with a rock reduces health.
   - **Trick System:** Perform tricks to earn extra points and chain combos for score multipliers.
-  - **Power-Ups:** Trigger special abilities like speed boosts by collecting snowflakes.
+  - **Power-Ups:** Trigger special abilities like speed boosts by collecting speed booster.
 
 - **Scoring System:**  
   Points are awarded based on speed, successful trick executions, collected items, and combos, encouraging skilled play and replayability.
